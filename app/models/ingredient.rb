@@ -1,3 +1,6 @@
 class Ingredient < ApplicationRecord
-  belongs_to :added_ingredient
+  has_many :added_ingredients
+  has_many :recipes, through: :added_ingredients
+  validates :name, presence: true, uniqueness: true
+
 end
